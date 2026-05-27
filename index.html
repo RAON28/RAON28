@@ -1,1 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GIPHY Embed Page</title>
 
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #111;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      text-align: center;
+      padding: 20px;
+    }
+
+    iframe {
+      max-width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 0 30px rgba(0,0,0,0.5);
+    }
+
+    a {
+      color: #ffffff;
+      text-decoration: none;
+      opacity: 0.7;
+    }
+
+    a:hover {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <iframe
+      src="https://giphy.com/embed/NfzERYyiWcXU4"
+      width="480"
+      height="379"
+      frameborder="0"
+      class="giphy-embed"
+      allowfullscreen>
+    </iframe>
+
+    <p>
+      <a href="https://giphy.com/gifs/kate-cats-NfzERYyiWcXU4" target="_blank">
+        via GIPHY
+      </a>
+    </p>
+  </div>
+</body>
+</html>
