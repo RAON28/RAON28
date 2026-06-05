@@ -16,6 +16,51 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // 다국어 번역 데이터 로드 및 적용
+  async function initI18n() {
+    const supportedLangs = ['ko', 'en', 'ja', 'zh', 'es', 'fr', 'de', 'ru'];
+    
+    // OS/브라우저 언어 감지
+    let userLang = (navigator.language || navigator.userLanguage).toLowerCase();
+    if (userLang.startsWith('zh')) {
+      userLang = 'zh';
+    } else {
+      userLang = userLang.split('-')[0];
+    }
+    
+    // 지원하지 않는 언어는 기본 영어(en)로 매칭
+    if (!supportedLangs.includes(userLang)) {
+      userLang = 'en';
+    }
+
+    try {
+      const response = await fetch(`locales/${userLang}.json`);
+      if (!response.ok) throw new Error('Locale file load failed');
+      const translations = await response.json();
+      
+      // HTML 요소 번역 적용
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[key]) {
+          if (el.tagName === 'TITLE') {
+            document.title = translations[key];
+          } else if (el.innerHTML.includes('<br>') || key === 'header_desc') {
+            el.innerHTML = translations[key];
+          } else {
+            el.textContent = translations[key];
+          }
+        }
+      });
+      
+      window.translations = translations;
+    } catch (err) {
+      console.error('Translation error:', err);
+    }
+  }
+
+  // 다국어 처리 즉시 실행
+  initI18n();
+
   // 고양이 꼬리 동적 추가
   const tailButtons = document.querySelectorAll('.btn, .donation-btn');
   tailButtons.forEach(btn => {
@@ -71,9 +116,13 @@ document.addEventListener('DOMContentLoaded', () => {
     copyBtn.addEventListener('click', () => {
       const accountText = document.getElementById('bank-account-number').innerText;
       navigator.clipboard.writeText(accountText).then(() => {
-        showToast('계좌번호가 클립보드에 복사되었습니다.');
+        const msg = (window.translations && window.translations.toast_copy_success) 
+                    || '계좌번호가 클립보드에 복사되었습니다.';
+        showToast(msg);
       }).catch(err => {
-        showToast('복사에 실패했습니다. 직접 복사해주세요.');
+        const msg = (window.translations && window.translations.toast_copy_fail) 
+                    || '복사에 실패했습니다. 직접 복사해주세요.';
+        showToast(msg);
       });
     });
   }
