@@ -1,0 +1,821 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;800&family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+
+:root {
+  --bg-primary: #18120f;
+  /* 웜 다크 코코아 */
+  --bg-secondary: #241a15;
+  /* 부드러운 다크 초콜릿 */
+  --bg-tertiary: #3a2a21;
+  /* 웜 브라운 */
+
+  --accent-blue: #f59e0b;
+  /* 치즈 주황 */
+  --accent-cyan: #eab308;
+  /* 크림 노랑 */
+  --accent-pink: #f43f5e;
+  /* 젤리 핑크 */
+
+  --text-primary: #fdf8f5;
+  /* 따뜻한 크림 아이보리 */
+  --text-secondary: #e6d5cb;
+  /* 밀크티 소프트 베이지 */
+  --text-muted: #9c8577;
+  /* 회갈색 */
+
+  --font-title: 'Outfit', 'Noto Sans KR', sans-serif;
+  --font-body: 'Inter', 'Noto Sans KR', sans-serif;
+
+  --transition: all 0.2s ease-in-out;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Header & Profile (Left-aligned & Flex horizontal) */
+header {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 80px 24px 40px;
+  position: relative;
+  z-index: 2;
+  /* 쥐들이 콘텐츠 뒤로 가도록 설정 */
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  text-align: left;
+}
+
+@media (max-width: 650px) {
+  .header-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+}
+
+/* 둥근모서리 정사각형 아바타 */
+.profile-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 16px;
+  /* 둥근모서리 정사각형 */
+  background: var(--bg-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.profile-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+header h1 {
+  font-family: var(--font-title);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+header p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  max-width: 650px;
+}
+
+/* Main Container */
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 24px 100px;
+  position: relative;
+  z-index: 2;
+  /* 쥐들이 콘텐츠 뒤로 가도록 설정 */
+}
+
+section {
+  margin-bottom: 60px;
+}
+
+section h2 {
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: var(--text-primary);
+}
+
+/* Flat Cards (No Borders, Flat BG) */
+.glass-card {
+  background: var(--bg-secondary);
+  border: none;
+  /* 테두리 제거 */
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: none;
+  /* 그림자 제거 또는 아주 약하게 */
+  transition: var(--transition);
+}
+
+.glass-card:hover {
+  background: #243046;
+  /* 소프트한 밝기 변화만 제공 */
+  transform: none;
+  /* 움직임 애니메이션 최소화 */
+}
+
+/* Projects Grid (1 Row layout per card) */
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  /* 한 줄씩 배치 */
+  gap: 20px;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+}
+
+.project-body {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.project-info-side {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-preview-side {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+@media (max-width: 768px) {
+  .project-body {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+  }
+
+  .project-preview-side {
+    justify-content: center;
+  }
+
+  .project-preview {
+    max-width: 100% !important;
+  }
+}
+
+.project-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.project-logo {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.project-title h3 {
+  font-family: var(--font-title);
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.project-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: #1e3a8a;
+  color: #93c5fd;
+  margin-top: 4px;
+}
+
+.project-badge.pc {
+  background: #881337;
+  color: #fda4af;
+}
+
+.project-desc {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+}
+
+.project-preview {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  /* 프리뷰 미디어 최대 너비 지정 */
+  height: auto;
+  /* aspect-ratio에 맞춰 높이가 조절되도록 수정 */
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.slider-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* 컨테이너 비율이 이미지와 일치하므로 cover를 사용해 미세한 렌더링 틈새 방지 */
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.slide.active {
+  opacity: 1;
+  pointer-events: auto;
+  z-index: 2;
+}
+
+
+
+/* 슬라이더 인디케이터 도트 */
+.slider-dots {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.dot.active {
+  background: var(--text-primary);
+  transform: scale(1.2);
+}
+
+.project-links {
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: var(--transition);
+  border: none;
+  outline: none;
+  position: relative;
+  /* 고양이 귀 배치를 위한 상대 위치 지정 */
+  transform-style: preserve-3d;
+  /* 꼬리가 버튼 뒤쪽에 위치하도록 3D 레이어 형성 */
+}
+
+.btn-primary {
+  background: #f59e0b;
+  /* 치즈 주황색 */
+  color: #ffffff;
+  --cat-color-main: #f59e0b;
+  --cat-color-dark: #d97706;
+}
+
+.btn-primary:hover {
+  background: #d97706;
+  /* 더 진한 주황색 */
+}
+
+.btn-secondary {
+  background: #4b7063;
+  /* 세이지 그린 */
+  color: #ffffff;
+  --cat-color-main: #4b7063;
+  --cat-color-dark: #2f473f;
+}
+
+.btn-secondary:hover {
+  background: #3a574d;
+}
+
+/* Donation Section */
+.donation-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  /* 후원내역 제거되었으므로 1열 배치 */
+  gap: 20px;
+}
+
+.donation-platforms {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.platform-group-title {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.platform-buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.donation-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: #ffffff;
+  /* 가독성을 위한 흰색 글자 */
+  background: #e55b7e;
+  /* 젤리 핑크 */
+  transition: var(--transition);
+  border: none;
+  position: relative;
+  /* 고양이 귀 배치를 위한 상대 위치 지정 */
+  transform-style: preserve-3d;
+  /* 꼬리가 버튼 뒤쪽에 위치하도록 3D 레이어 형성 */
+  --cat-color-main: #e55b7e;
+  --cat-color-dark: #a0324f;
+}
+
+.donation-btn svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.donation-btn:hover {
+  background: #c44365;
+  color: #ffffff;
+}
+
+/* Modals (No Border, Clean Modals) */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.modal.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 23, 42, 0.8);
+}
+
+.modal-content {
+  position: relative;
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  padding: 24px;
+  max-width: 380px;
+  width: 90%;
+  text-align: center;
+  transform: translateY(10px);
+  transition: transform 0.2s ease;
+  z-index: 1001;
+  border: none;
+}
+
+.modal.active .modal-content {
+  transform: translateY(0);
+}
+
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 4px;
+}
+
+.modal-close:hover {
+  color: var(--text-primary);
+}
+
+.modal-qr-img {
+  width: 200px;
+  height: 200px;
+  border-radius: 8px;
+  margin: 16px auto;
+  background: #ffd676;
+  padding: 5px;
+}
+
+.modal-qr-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.modal-bank-info {
+  margin: 16px 0;
+  background: var(--bg-tertiary);
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.modal-bank-title {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  margin-bottom: 2px;
+}
+
+.modal-bank-account {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* Toast Alerts */
+.toast-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.toast {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  opacity: 0;
+  animation: slideIn 0.2s forwards, fadeOut 0.2s 2.8s forwards;
+  border: none;
+}
+
+@keyframes slideIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+  }
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 40px 24px;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+
+/* Store & Platform SVG Icon Styles */
+.store-svg-icon {
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
+/* Custom Cat Cursor */
+html,
+body {
+  cursor: url('cat/커서small21.png') 12 12, auto;
+}
+
+a,
+button,
+[role="button"],
+input[type="submit"],
+input[type="button"],
+.btn,
+.dot,
+.modal-close,
+.donation-btn {
+  cursor: url('cat/커서small22.png') 12 12, pointer !important;
+}
+
+/* Cat Ears Decoration for Buttons */
+/* Left Ear */
+.btn::before,
+.donation-btn::before {
+  content: "";
+  position: absolute;
+  bottom: 85%;
+  /* 버튼 본체 뒤로 들어가도록 보정 */
+  left: 12px;
+  width: 18px;
+  height: 16px;
+  /* 버튼의 테마색을 반영한 줄무늬 + 하얀 솜털 끝부분 표현 */
+  background: linear-gradient(to bottom,
+      #ffffff 0%,
+      #ffffff 20%,
+      var(--cat-color-main, #f59e0b) 20%,
+      var(--cat-color-main, #f59e0b) 60%,
+      var(--cat-color-dark, #d97706) 60%,
+      var(--cat-color-dark, #d97706) 75%,
+      var(--cat-color-main, #f59e0b) 75%,
+      var(--cat-color-main, #f59e0b) 100%);
+  clip-path: polygon(0% 100%, 32% 16%, 42% 6%, 50% 3%, 58% 6%, 68% 16%, 100% 100%);
+  /* 귀 끝 둥글게 클리핑 */
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform-origin: bottom center;
+  transform: translateZ(-1px);
+  /* 버튼 본체 배경 레이어 뒤로 가도록 설정 */
+  z-index: -1;
+  pointer-events: none;
+  display: block;
+}
+
+/* Right Ear */
+.btn::after,
+.donation-btn::after {
+  content: "";
+  position: absolute;
+  bottom: 85%;
+  right: 12px;
+  width: 18px;
+  height: 16px;
+  background: linear-gradient(to bottom,
+      #ffffff 0%,
+      #ffffff 20%,
+      var(--cat-color-main, #f59e0b) 20%,
+      var(--cat-color-main, #f59e0b) 60%,
+      var(--cat-color-dark, #d97706) 60%,
+      var(--cat-color-dark, #d97706) 75%,
+      var(--cat-color-main, #f59e0b) 75%,
+      var(--cat-color-main, #f59e0b) 100%);
+  clip-path: polygon(0% 100%, 32% 16%, 42% 6%, 50% 3%, 58% 6%, 68% 16%, 100% 100%);
+  /* 귀 끝 둥글게 클리핑 */
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform-origin: bottom center;
+  transform: translateZ(-1px);
+  z-index: -1;
+  pointer-events: none;
+  display: block;
+}
+
+/* Hover effect: ears twitch */
+.btn:hover::before,
+.donation-btn:hover::before {
+  transform: translateZ(-1px) translateY(-2px) scaleY(1.2) rotate(-10deg);
+}
+
+.btn:hover::after,
+.donation-btn:hover::after {
+  transform: translateZ(-1px) translateY(-2px) scaleY(1.2) rotate(10deg);
+}
+
+/* Cat Tail Decoration for Buttons */
+.cat-tail {
+  position: absolute;
+  top: 85%;
+  /* 버튼 뒷쪽에서 튀어나오는 연출을 위해 약간 위에서 시작 */
+  right: 14px;
+  /* 버튼 오른쪽 하단에 배치 */
+  width: 12px;
+  height: 28px;
+  /* 버튼 테마 컬러를 반영한 줄무늬 + 하얀 솜털 양끝 표현 */
+  background: linear-gradient(to bottom,
+      var(--cat-color-main, #f59e0b) 0%,
+      var(--cat-color-main, #f59e0b) 35%,
+      var(--cat-color-dark, #d97706) 35%,
+      var(--cat-color-dark, #d97706) 50%,
+      var(--cat-color-main, #f59e0b) 50%,
+      var(--cat-color-main, #f59e0b) 75%,
+      #ffffff 75%,
+      #ffffff 100%);
+  /* S자 형태로 꼬리를 클리핑 (일정한 두께, 둥근 끝부분) */
+  clip-path: polygon(30% 0%, 70% 0%,
+      90% 20%, 90% 35%,
+      70% 55%, 50% 70%,
+      50% 85%, 55% 95%,
+      50% 100%, 40% 100%,
+      30% 100%, 20% 95%,
+      10% 85%, 10% 70%,
+      30% 55%, 50% 35%,
+      50% 20%);
+  transform-origin: top center;
+  z-index: -1;
+  /* 버튼 글씨나 요소들 뒤에 숨김 */
+  transform: translateZ(-1px);
+  /* 부모 background 뒤로 가려지는 Stacking Context 문제 해결 */
+  transition: transform 0.3s ease-in-out;
+  pointer-events: none;
+  /* 클릭 방해 방지 */
+}
+
+/* Hover: Wiggle/Wag the tail (살짝 빠르게 0.7s) */
+.btn:hover .cat-tail,
+.donation-btn:hover .cat-tail {
+  animation: catTailWag 0.7s ease-in-out infinite alternate;
+}
+
+@keyframes catTailWag {
+  0% {
+    transform: translateZ(-1px) rotate(-15deg) skewX(-4deg);
+  }
+
+  100% {
+    transform: translateZ(-1px) rotate(22deg) skewX(6deg);
+  }
+}
+
+/* Heart Particle Styles for Donation Buttons */
+.donation-btn {
+  overflow: visible;
+}
+
+.heart-particle {
+  position: absolute;
+  pointer-events: none;
+  z-index: -1;
+  transform-style: preserve-3d;
+  transform: translate3d(0, 0, 0px);
+  /* 버튼 뒤로 위치 보정 */
+  animation: heartFloat 1s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+  opacity: 0;
+  line-height: 1;
+}
+
+@keyframes heartFloat {
+  0% {
+    transform: translate3d(0, 0, -1px) scale(0.2) rotate(0deg);
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 0.95;
+    transform: translate3d(0, 0, -1px) scale(0.6);
+  }
+
+  100% {
+    transform: translate3d(var(--tx), var(--ty), -1px) scale(1.6) rotate(30deg);
+    opacity: 0;
+  }
+}
+
+/* Background Mice Decoration */
+.bg-mouse {
+  position: absolute;
+  width: 30px;
+  height: auto;
+  opacity: 0.7;
+  /* 배경에 은은하고 자연스럽게 동화되도록 투명도 설정 */
+  pointer-events: none;
+  /* 사용자 클릭 및 드래그 방해 금지 */
+  z-index: 1;
+  /* 컨텐츠 아래(배경 위) 배치 */
+  transition: transform 0.12s ease-out, opacity 0.3s;
+}
+
+
+/* Button Shiver (Wiggle) Effect on Hover */
+.btn:hover,
+.donation-btn:hover {
+  animation: shiver 0.12s infinite;
+}
+
+@keyframes shiver {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+
+  25% {
+    transform: translate(-1px, -0.5px) rotate(-0.5deg);
+  }
+
+  50% {
+    transform: translate(1px, 0.5px) rotate(0.5deg);
+  }
+
+  75% {
+    transform: translate(-0.5px, 1px) rotate(-0.5deg);
+  }
+
+  100% {
+    transform: translate(0.5px, -1px) rotate(0.5deg);
+  }
+}
+
+/* Logo Particles for Standard Buttons */
+.btn {
+  overflow: visible;
+}
+
+.logo-particle {
+  position: absolute;
+  pointer-events: none;
+  z-index: -1;
+  transform-style: preserve-3d;
+  transform: translate3d(0, 0, -1px) scale(0.2) rotate(0deg);
+  animation: logoFloat 1s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+  opacity: 0;
+  object-fit: contain;
+}
+
+@keyframes logoFloat {
+  0% {
+    transform: translate3d(0, 0, -1px) scale(0.2) rotate(0deg);
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 0.85;
+    transform: translate3d(0, 0, -1px) scale(0.6);
+  }
+
+  100% {
+    transform: translate3d(var(--tx), var(--ty), -1px) scale(1.4) rotate(45deg);
+    opacity: 0;
+  }
+}

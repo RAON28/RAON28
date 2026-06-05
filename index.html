@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>😸profile</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+  <!-- 헤더 프로필 영역 -->
+  <header>
+    <div class="header-container">
+      <div class="profile-avatar">
+        <iframe src="https://giphy.com/embed/NfzERYyiWcXU4" width="150" height="150" frameBorder="0" class="giphy-embed"
+          style="border-radius: 50%; pointer-events: none;" allowFullScreen></iframe>
+      </div>
+      <div class="profile-info">
+        <h1>안녕하세요옹~~~ 😸</h1>
+        <p>편리하고 유용한 확장 프로그램과 데스크톱 도구를 제작합니다.<br>후원은 지속적인 서비스 개발과 유지보수에 아주 큰 힘이 됩니다!</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- 메인 콘텐트 -->
+  <main>
+
+    <!-- 1. 프로젝트 소개 섹션 -->
+    <section id="projects">
+      <h2>프로젝트</h2>
+      <div class="projects-grid">
+        <article class="glass-card project-card">
+          <div class="project-body">
+            <div class="project-info-side">
+              <div class="project-header">
+                <img class="project-logo" src="logo/gpt extension logo.png" alt="Extension Logo">
+                <div class="project-title">
+                  <h3>ChatGPT - GPT 채팅 일괄 보관 및 삭제</h3>
+                  <span class="project-badge">확장 프로그램</span>
+                </div>
+              </div>
+              <p class="project-desc">원하는 ChatGPT 대화 탭들을 선택하여 원클릭으로 보관하거나 삭제하는 강력한 생산성 확장 프로그램입니다.
+              </p>
+              <div class="project-links">
+                <a href="https://addons.mozilla.org/firefox/addon/chatgpt-chats-delete/" target="_blank"
+                  class="btn btn-primary" id="btn-ext-store">
+                  <img class="store-svg-icon" src="logo/firefox.svg" alt="Firefox Logo"
+                    style="vertical-align: middle; margin-right: 6px;">
+                  파이어폭스
+                </a>
+                <a href="https://chromewebstore.google.com/detail/onkgclhgahifgcmlanepmiodcfbfenig?utm_source=item-share-cb"
+                  target="_blank" class="btn btn-primary" id="btn-ext-store">
+                  <img class="store-svg-icon" src="logo/chrome.svg" alt="Chrome Logo"
+                    style="vertical-align: middle; margin-right: 6px;">
+                  크롬
+                </a>
+                <a href="https://store.whale.naver.com/detail/jankkhgcfgfmhkidgklkialiofajngod" target="_blank"
+                  class="btn btn-primary" id="btn-ext-store">
+                  <img class="store-svg-icon" src="logo/whale.svg" alt="Whale Logo"
+                    style="vertical-align: middle; margin-right: 6px;">
+                  웨일
+                </a>
+                <a href="https://microsoftedge.microsoft.com/addons/detail/cefenfejcmmmejpilemgagpblkdncmoe"
+                  target="_blank" class="btn btn-primary" id="btn-ext-store">
+                  <img class="store-svg-icon" src="logo/edge.svg" alt="Edge Logo"
+                    style="vertical-align: middle; margin-right: 6px;">
+                  엣지
+                </a>
+              </div>
+            </div>
+            <div class="project-preview-side">
+              <div class="project-preview slider-container" style="aspect-ratio: 16 / 10;">
+                <div class="slider-wrapper">
+                  <img src="Screenshot\이미지1.png" class="slide active" alt="Excel Preview">
+                  <img src="Screenshot\이미지2.png" class="slide" alt="Photoshop Preview">
+                  <img src="Screenshot\이미지3.png" class="slide" alt="VSCode Preview">
+                </div>
+                <div class="slider-dots">
+                  <span class="dot active" data-index="0"></span>
+                  <span class="dot" data-index="1"></span>
+                  <span class="dot" data-index="2"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 카드 2: PC 프로그램 -->
+        <article class="glass-card project-card">
+          <div class="project-body">
+            <div class="project-info-side">
+              <div class="project-header">
+                <img class="project-logo" src="logo/danbi logo.png" alt="PC App Logo">
+                <div class="project-title">
+                  <h3>DANBI-단비</h3>
+                  <span class="project-badge pc">Windows</span>
+                </div>
+              </div>
+              <p class="project-desc">윈도우 및 맥OS 환경에서 리소스를 효율적으로 자동 정리하고 단축키로 제어 가능한 테크 헬퍼 데스크톱 프로그램입니다.</p>
+              <div class="project-links">
+                <a href="https://github.com" target="_blank" class="btn btn-primary" id="btn-pc-download">
+                  <img class="store-svg-icon" src="logo/windows.svg" alt="Windows Logo">
+                  다운로드
+                </a>
+                <a href="https://danbisupport.github.io/" target="_blank" class="btn btn-secondary" id="btn-pc-info">
+                  <img class="store-svg-icon" src="logo/danbi logo.png" alt="Danbi Logo"
+                    style="vertical-align: middle; margin-right: 6px;">상세 보기
+                </a>
+              </div>
+            </div>
+            <div class="project-preview-side">
+              <div class="project-preview slider-container" style="aspect-ratio: 1455 / 855;">
+                <div class="slider-wrapper">
+                  <img src="Screenshot\danbi-vscode.png" class="slide active" alt="VSCode Preview">
+                  <img src="Screenshot\danbi-excel.png" class="slide" alt="Excel Preview">
+                  <img src="Screenshot\danbi-photoshop.png" class="slide" alt="Photoshop Preview">
+                </div>
+                <div class="slider-dots">
+                  <span class="dot active" data-index="0"></span>
+                  <span class="dot" data-index="1"></span>
+                  <span class="dot" data-index="2"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- 2. 후원하기 레이아웃 -->
+    <section id="donation">
+      <h2>❤ 후원 ❤</h2>
+      <div class="donation-layout">
+
+        <!-- 후원 수단 -->
+        <div class="glass-card donation-platforms">
+          <div>
+            <div class="platform-buttons">
+              <!-- Ko-fi -->
+              <a href="https://ko-fi.com/laon28" target="_blank" class="donation-btn kofi" id="btn-kofi">
+                <svg fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M23.881 8.948c-.773-4.085-4.859-4.593-4.859-4.593H.723c-.604 0-.679.798-.679.798s-.082 7.324-.022 11.822c.164 12.25 15.351 11.12 15.351 11.12s5.155-.224 5.928-6.194c.773-5.97 3.256-4.908 3.256-8.23 0-3.323-.698-4.723-.698-4.723zm-5.748 7.387c-.822 5.086-4.98 4.723-4.98 4.723H3.023V6.269h13.684s2.855-.181 2.855 3.513c-.001 3.693-1.43 6.553-1.43 6.553zm4.614-2.81c-.575 2.115-2.298 2.236-2.298 2.236V9.066s1.692-.091 2.298 2.024c.604 2.115.575 2.435 0 4.435z" />
+                </svg>
+                Ko-fi
+              </a>
+              <!-- Patreon -->
+              <!-- <a href="https://patreon.com" target="_blank" class="donation-btn patreon" id="btn-patreon">
+                <svg fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M0 .008h4.156v23.984H0V.008zm15.719 0c-4.57 0-8.275 3.703-8.275 8.27 0 4.57 3.705 8.276 8.275 8.276 4.561 0 8.281-3.706 8.281-8.275 0-4.568-3.72-8.27-8.281-8.27z" />
+                </svg>
+                Patreon
+              </a> -->
+              <!-- 카카오페이 QR -->
+              <a href="#" class="donation-btn kakaopay" id="btn-kakaopay">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z" />
+                </svg>
+                카카오페이 QR
+              </a>
+              <!-- 계좌 후원 -->
+              <a href="#" class="donation-btn bank" id="btn-bank">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                </svg>
+                계좌이체 후원
+              </a>
+
+
+            </div>
+          </div>
+
+
+        </div>
+
+      </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 3. 카카오페이 모달 -->
+  <div class="modal" id="modal-kakaopay">
+    <div class="modal-backdrop"></div>
+    <div class="modal-content">
+      <button class="modal-close" aria-label="닫기">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+      <h3>카카오페이 QR 코드</h3>
+      <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 8px;">스마트폰으로 스캔하여 간편하게 송금하실 수 있습니다.</p>
+      <div class="modal-qr-img">
+        <img src="cat\qr.png" alt="카카오페이 QR 코드">
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. 계좌이체 모달 -->
+  <div class="modal" id="modal-bank">
+    <div class="modal-backdrop"></div>
+    <div class="modal-content">
+      <button class="modal-close" aria-label="닫기">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+      <h3>계좌이체 후원</h3>
+      <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 8px;">아래 계좌번호로 따뜻한 마음을 보내주세요.</p>
+      <div class="modal-bank-info">
+        <div class="modal-bank-title">토스</div>
+        <div class="modal-bank-account" id="bank-account-number">1000-0604-2530</div>
+      </div>
+      <button class="btn btn-primary" style="width: 100%;" id="btn-copy-account">계좌번호 복사하기</button>
+    </div>
+  </div>
+
+  <!-- 푸터 -->
+  <footer>
+    <p>koh980628@gmail.com😸</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
