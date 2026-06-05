@@ -819,3 +819,73 @@ input[type="button"],
     opacity: 0;
   }
 }
+
+/* Language Selector Dropdown */
+.header-lang-container {
+  position: absolute;
+  top: 30px;
+  right: 24px;
+  z-index: 100; /* 쥐 레이어보다 높게, 모달보다는 낮게 */
+}
+
+.header-lang-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  border: 1px solid var(--bg-tertiary);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: url('cat/커서small22.png') 12 12, pointer !important;
+  transition: var(--transition);
+  outline: none;
+}
+
+.header-lang-btn:hover {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  border-color: var(--text-muted);
+}
+
+.header-lang-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: var(--bg-secondary);
+  border: 1px solid var(--bg-tertiary);
+  border-radius: 10px;
+  width: 145px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(5px);
+  transition: all 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
+}
+
+.header-lang-dropdown.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.lang-option {
+  display: block;
+  padding: 10px 14px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.78rem;
+  transition: var(--transition);
+  text-align: left;
+  cursor: url('cat/커서small22.png') 12 12, pointer !important;
+}
+
+.lang-option:hover {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+}

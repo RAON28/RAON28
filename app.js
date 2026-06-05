@@ -16,19 +16,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 다국어 번역 데이터 로드 및 적용
-  async function initI18n() {
+  // 다국어 번역 데이터 로드 및 적용 (기본 선호 언어: 영어)
+  async function initI18n(forcedLang) {
     const supportedLangs = ['ko', 'en', 'ja', 'zh', 'es', 'fr', 'de', 'ru'];
     
-    // OS/브라우저 언어 감지
-    let userLang = (navigator.language || navigator.userLanguage).toLowerCase();
-    if (userLang.startsWith('zh')) {
-      userLang = 'zh';
-    } else {
-      userLang = userLang.split('-')[0];
+    // 로컬스토리지 선호 언어 -> 강제 지정 언어 -> 최초 기본은 영어(en)
+    let userLang = forcedLang || localStorage.getItem('preferredLanguage');
+    
+    if (!userLang) {
+      userLang = 'en';
+      localStorage.setItem('preferredLanguage', 'en');
     }
     
-    // 지원하지 않는 언어는 기본 영어(en)로 매칭
     if (!supportedLangs.includes(userLang)) {
       userLang = 'en';
     }
@@ -52,14 +51,45 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
       
+      // 헤더 다국어 버튼 라벨 갱신
+      const langBtn = document.getElementById('header-lang-btn');
+      if (langBtn) {
+        langBtn.innerHTML = `<i class="fa-solid fa-globe"></i> ${userLang.toUpperCase()} <i class="fa-solid fa-chevron-down"></i>`;
+      }
+      
       window.translations = translations;
     } catch (err) {
       console.error('Translation error:', err);
     }
   }
 
-  // 다국어 처리 즉시 실행
+  // 다국어 처리 즉시 실행 (기본언어 영어)
   initI18n();
+
+  // 언어 선택 드롭다운 기능 구현
+  const langBtn = document.getElementById('header-lang-btn');
+  const langDropdown = document.getElementById('header-lang-dropdown');
+
+  if (langBtn && langDropdown) {
+    langBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      langDropdown.classList.toggle('active');
+    });
+
+    document.addEventListener('click', () => {
+      langDropdown.classList.remove('active');
+    });
+
+    langDropdown.querySelectorAll('.lang-option').forEach(opt => {
+      opt.addEventListener('click', (e) => {
+        e.preventDefault();
+        const selectedLang = opt.getAttribute('data-lang');
+        localStorage.setItem('preferredLanguage', selectedLang);
+        initI18n(selectedLang);
+        langDropdown.classList.remove('active');
+      });
+    });
+  }
 
   // 고양이 꼬리 동적 추가
   const tailButtons = document.querySelectorAll('.btn, .donation-btn');
