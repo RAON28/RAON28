@@ -20,10 +20,10 @@ document.addEventListener('DOMContentLoaded', () => {
   async function initI18n(forcedLang) {
     const supportedLangs = ['ko', 'en', 'ja', 'zh', 'es', 'fr', 'de', 'ru'];
     
-    // 1. 강제지정 언어 또는 2. 로컬스토리지 저장 선호 언어
-    let userLang = forcedLang || localStorage.getItem('preferredLanguage');
+    // 1. 강제지정 언어 (드롭다운 선택 시)
+    let userLang = forcedLang;
     
-    // 3. 저장된 언어가 없을 때 OS/브라우저 언어 자동 감지
+    // 2. 지정된 언어가 없을 때 OS/브라우저 언어 자동 감지
     if (!userLang) {
       let browserLang = (navigator.language || navigator.userLanguage).toLowerCase();
       if (browserLang.startsWith('zh')) {
@@ -90,7 +90,6 @@ document.addEventListener('DOMContentLoaded', () => {
       opt.addEventListener('click', (e) => {
         e.preventDefault();
         const selectedLang = opt.getAttribute('data-lang');
-        localStorage.setItem('preferredLanguage', selectedLang);
         initI18n(selectedLang);
         langDropdown.classList.remove('active');
       });
