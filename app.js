@@ -16,18 +16,24 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 다국어 번역 데이터 로드 및 적용 (기본 선호 언어: 영어)
+  // 다국어 번역 데이터 로드 및 적용 (OS/브라우저 감지, 기본 fallback: 영어)
   async function initI18n(forcedLang) {
     const supportedLangs = ['ko', 'en', 'ja', 'zh', 'es', 'fr', 'de', 'ru'];
     
-    // 로컬스토리지 선호 언어 -> 강제 지정 언어 -> 최초 기본은 영어(en)
+    // 1. 강제지정 언어 또는 2. 로컬스토리지 저장 선호 언어
     let userLang = forcedLang || localStorage.getItem('preferredLanguage');
     
+    // 3. 저장된 언어가 없을 때 OS/브라우저 언어 자동 감지
     if (!userLang) {
-      userLang = 'en';
-      localStorage.setItem('preferredLanguage', 'en');
+      let browserLang = (navigator.language || navigator.userLanguage).toLowerCase();
+      if (browserLang.startsWith('zh')) {
+        userLang = 'zh';
+      } else {
+        userLang = browserLang.split('-')[0];
+      }
     }
     
+    // 4. 감지된 언어가 미지원인 경우 최종 기본언어 영어(en) 설정
     if (!supportedLangs.includes(userLang)) {
       userLang = 'en';
     }
