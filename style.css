@@ -338,6 +338,7 @@ section h2 {
 .btn-primary:hover {
   background: #d97706;
   /* 더 진한 주황색 */
+  --cat-color-main: #d97706;
 }
 
 .btn-secondary {
@@ -350,6 +351,7 @@ section h2 {
 
 .btn-secondary:hover {
   background: #3a574d;
+  --cat-color-main: #3a574d;
 }
 
 /* Donation Section */
@@ -413,6 +415,7 @@ section h2 {
 .donation-btn:hover {
   background: #c44365;
   color: #ffffff;
+  --cat-color-main: #c44365;
 }
 
 /* Modals (No Border, Clean Modals) */
@@ -597,17 +600,10 @@ input[type="button"],
   height: 16px;
   /* 버튼의 테마색을 반영한 줄무늬 + 하얀 솜털 끝부분 표현 */
   background: linear-gradient(to bottom,
-      #ffffff 0%,
-      #ffffff 20%,
-      var(--cat-color-main, #f59e0b) 20%,
-      var(--cat-color-main, #f59e0b) 60%,
-      var(--cat-color-dark, #d97706) 60%,
-      var(--cat-color-dark, #d97706) 75%,
-      var(--cat-color-main, #f59e0b) 75%,
       var(--cat-color-main, #f59e0b) 100%);
   clip-path: polygon(0% 100%, 32% 16%, 42% 6%, 50% 3%, 58% 6%, 68% 16%, 100% 100%);
   /* 귀 끝 둥글게 클리핑 */
-  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), background 0.2s ease-in-out;
   transform-origin: bottom center;
   transform: translateZ(-1px);
   /* 버튼 본체 배경 레이어 뒤로 가도록 설정 */
@@ -626,17 +622,10 @@ input[type="button"],
   width: 18px;
   height: 16px;
   background: linear-gradient(to bottom,
-      #ffffff 0%,
-      #ffffff 20%,
-      var(--cat-color-main, #f59e0b) 20%,
-      var(--cat-color-main, #f59e0b) 60%,
-      var(--cat-color-dark, #d97706) 60%,
-      var(--cat-color-dark, #d97706) 75%,
-      var(--cat-color-main, #f59e0b) 75%,
       var(--cat-color-main, #f59e0b) 100%);
   clip-path: polygon(0% 100%, 32% 16%, 42% 6%, 50% 3%, 58% 6%, 68% 16%, 100% 100%);
   /* 귀 끝 둥글게 클리핑 */
-  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), background 0.2s ease-in-out;
   transform-origin: bottom center;
   transform: translateZ(-1px);
   z-index: -1;
@@ -825,7 +814,8 @@ input[type="button"],
   position: absolute;
   top: 30px;
   right: 24px;
-  z-index: 100; /* 쥐 레이어보다 높게, 모달보다는 낮게 */
+  z-index: 100;
+  /* 쥐 레이어보다 높게, 모달보다는 낮게 */
 }
 
 .header-lang-btn {
