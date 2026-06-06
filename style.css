@@ -593,7 +593,7 @@ input[type="button"],
 .donation-btn::before {
   content: "";
   position: absolute;
-  bottom: 85%;
+  bottom: 80%;
   /* 버튼 본체 뒤로 들어가도록 보정 */
   left: 12px;
   width: 18px;
@@ -617,7 +617,7 @@ input[type="button"],
 .donation-btn::after {
   content: "";
   position: absolute;
-  bottom: 85%;
+  bottom: 80%;
   right: 12px;
   width: 18px;
   height: 16px;
