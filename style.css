@@ -850,6 +850,7 @@ input[type="button"],
   width: 145px;
   display: flex;
   flex-direction: column;
+  z-index: 10000;
   overflow: hidden;
   opacity: 0;
   pointer-events: none;
