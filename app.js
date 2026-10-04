@@ -129,12 +129,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 국내 후원 클릭 이벤트
   const btnKakaopay = document.getElementById('btn-kakaopay');
+  const btntosspay = document.getElementById('btn-tosspay');
   const btnBank = document.getElementById('btn-bank');
 
   if (btnKakaopay) {
     btnKakaopay.addEventListener('click', (e) => {
       e.preventDefault();
       openModal('modal-kakaopay');
+    });
+  }
+
+  if (btntosspay) {
+    btntosspay.addEventListener('click', (e) => {
+      e.preventDefault();
+      openModal('modal-tosspay');
     });
   }
 
