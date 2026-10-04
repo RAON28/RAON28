@@ -20,5 +20,8 @@
   "modal_bank_name": "Toss",
   "modal_bank_copy": "Copy Account Number",
   "toast_copy_success": "Account number copied to clipboard.",
+  "btn_tosspay": "TossPay QR",
+  "modal_tosspay_title": "TossPay QR Code",
+  "modal_bank_name": "Toss",
   "toast_copy_fail": "Copy failed. Please copy manually."
 }
